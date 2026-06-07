@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% load static%}
+{% block headData %}
+<style>
+    body{
+        background-image: url("{% static 'images/form_bg.jpg'%}");
+        background-size: cover;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<form class="col-4 mx-auto card p-3 shadow-lg mt-4" method="post">
+    {% csrf_token %}
+    <h2>Login</h2>
+    
+    <hr>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    
+    <p><a href="{% url  'reset_password'%}">Forgot Password</a></p>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <p>Don't have account <a href="{% url  'register_page'%}">Register</a></p>
+</form>
+
+
+{% endblock %}

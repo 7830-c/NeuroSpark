@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %}
+Report
+{% endblock %}
+
+
+{% block headData %}
+<style>
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1 class="alert alert-primary" role="alert" style="text-align: center;">Prediction Report</h1>
+<hr>
+
+<h3 style="text-align: center;color: crimson;">{{prediction}}</h3>
+
+<div class="col-md-10 text-center">
+    <img src="{% static 'images/plot.png' %}" class="mx-auto d-block">
+</div>
+
+{% endblock %}

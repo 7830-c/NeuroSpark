@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Registration Page
+{% endblock %}
+
+
+
+{% load static%}
+{% block headData %}
+<style>
+    body{
+        background-image: url("{% static 'images/form_bg.jpg'%}");
+        background-size: cover;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<form class="col-6 mx-auto card p-3 shadow-lg mt-3 " method="post">
+    {% csrf_token %}
+    <h2>Register</h2>
+    <hr>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="mb-2">
+        <label for="username1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username1" name="username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+
+    <div class="mb-2">
+        <label for="exampleInputPassword2" class="form-label">Confirm_Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword2" name="confirm_password">
+    </div>
+    <p>Already have account <a href="{% url  'login_page'%}">Login</a></p>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+
+{% endblock %}

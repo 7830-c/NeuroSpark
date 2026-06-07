@@ -1,0 +1,97 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+
+{% load static%}
+{% block headData %}
+
+<link rel="stylesheet" href="{% static 'css/cards.css'%}"">
+
+<style>
+    body {
+        background-image: url("{% static 'images/home_bg.jpg'%}");
+        background-size: cover;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="ag-format-container">
+    <div class="ag-courses_box">
+
+        <div class="ag-courses_item">
+            <a href="{%url 'uploader' 'Alzehimer'%}" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                    Alzehimer Prediction
+                </div>
+            </a>
+        </div>
+
+        <div class="ag-courses_item">
+            <a href="{%url 'uploader' 'Tumor'%}" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                   Brain Tumor Prediction
+                </div>
+            </a>
+        </div>
+        <div class="ag-courses_item">
+            <a href="{%url 'uploader' 'Stroke'%}" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                    Brain Stroke Prediction
+                </div>
+            </a>
+        </div>
+
+        <div class="ag-courses_item">
+            <a href="{%url 'uploader' 'Scelerosis'%}" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                    Multiple Scelerosis Prediction
+                </div>
+            </a>
+        </div>
+
+        <div class="ag-courses_item">
+            <a href="{%url 'uploader' 'Hemmorahage'%}" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                   Brain Hemmorahage
+                </div>
+
+            </a>
+        </div>
+
+
+        <div class="ag-courses_item">
+            <a href="{%url 'uploader' 'All'%}" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                    Multiple Disease Prediction
+                </div>
+
+            </a>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

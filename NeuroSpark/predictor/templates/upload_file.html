@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+
+
+{% block title %}
+Upload Brain MRI Images
+{% endblock %}
+
+{% block headData %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+    body {
+        background:url("{% static 'images/home_bg.jpg'%}");
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+{% include 'navbar.html'%}
+
+
+
+<form id="uploadForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="hero">
+        <label for="input-file" id="drop-area">
+            <input type="file" accept="image/*" name="mri_image" id="input-file" hidden >
+            <div id="img-view">
+                <img src="{% static 'images/drop-icon.png' %}">
+                <p>Drag and drop or Click here<br> to upload image</p>
+                <span>Upload any image from desktop</span>
+            </div>
+        </label>
+
+        <div class="text-center" style="margin-top: 9px;">
+            <button id="analyze_btn" type="submit" class="btn btn-danger reduce-margin" onclick="changeBtn()">Analyze</button>
+        </div>
+
+    </div>
+
+
+    <script>
+        function changeBtn(){
+            let btn=document.getElementById("analyze_btn");
+            btn.setAttribute("class","btn btn-success reduce-margin");
+            btn.innerHTML="Analyzing..."
+        }
+    </script>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<script src="{% static 'js/imageUploadScript.js' %}"></script>
+
+
+{% endblock %}
